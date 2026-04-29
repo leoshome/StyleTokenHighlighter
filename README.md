@@ -13,7 +13,7 @@ A Sublime Text plugin that adds Notepad++'s **"Style all occurrences of token"**
 ### Highlighting Tokens
 Select a word, right-click, and choose a style. All occurrences will be highlighted.
 
-**[View Demo Video](screenshots/screenshots.mp4)**
+![Highlighting Demo](screenshots/screenshots.gif)
 
 ## Installation
 
