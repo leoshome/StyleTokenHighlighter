@@ -1,8 +1,8 @@
 import sublime
 import sublime_plugin
 
-# Color definitions using standard scopes (compatible with ST3 and ST4)
-COLOR_SCOPES = [
+# Default color scopes (fallback if settings not available)
+DEFAULT_COLOR_SCOPES = [
     "string",           # Style 1
     "comment",          # Style 2
     "keyword",          # Style 3
@@ -14,6 +14,11 @@ COLOR_SCOPES = [
     "storage.type"      # Style 9
 ]
 
+def get_color_scopes():
+    """Load color scopes from settings, fallback to defaults."""
+    settings = sublime.load_settings("StyleTokenHighlighter.sublime-settings")
+    return settings.get("colors", DEFAULT_COLOR_SCOPES)
+
 class StyleTokenHighlightCommand(sublime_plugin.TextCommand):
     def description(self, color_index=0):
         return "Using Style {}".format(color_index + 1)
@@ -22,7 +27,8 @@ class StyleTokenHighlightCommand(sublime_plugin.TextCommand):
         view = self.view
         sel = view.sel()
         
-        scope = COLOR_SCOPES[color_index % len(COLOR_SCOPES)]
+        scopes = get_color_scopes()
+        scope = scopes[color_index % len(scopes)]
         key = "style_token_{}".format(color_index)
         
         new_regions = view.get_regions(key)
@@ -49,7 +55,7 @@ class StyleTokenClearSpecificHighlightCommand(sublime_plugin.TextCommand):
 
 class StyleTokenClearAllHighlightCommand(sublime_plugin.TextCommand):
     def run(self, edit):
-        for i in range(len(COLOR_SCOPES)):
+        for i in range(len(get_color_scopes())):
             self.view.erase_regions("style_token_{}".format(i))
 
 class StyleTokenToggleSpecificHighlightCommand(sublime_plugin.TextCommand):
@@ -60,7 +66,8 @@ class StyleTokenToggleSpecificHighlightCommand(sublime_plugin.TextCommand):
         view = self.view
         sel = view.sel()
         
-        scope = COLOR_SCOPES[color_index % len(COLOR_SCOPES)]
+        scopes = get_color_scopes()
+        scope = scopes[color_index % len(scopes)]
         key = "style_token_{}".format(color_index)
         
         existing_regions = view.get_regions(key)
@@ -99,7 +106,8 @@ class StyleTokenToggleHighlightCommand(sublime_plugin.TextCommand):
         # Find first available style
         color_index = self._get_next_available_style(view)
         
-        scope = COLOR_SCOPES[color_index % len(COLOR_SCOPES)]
+        scopes = get_color_scopes()
+        scope = scopes[color_index % len(scopes)]
         key = "style_token_{}".format(color_index)
         
         existing_regions = view.get_regions(key)
@@ -120,8 +128,9 @@ class StyleTokenToggleHighlightCommand(sublime_plugin.TextCommand):
                 highlighted_regions = view.get_regions(highlighted_key)
                 new_regions = [r for r in highlighted_regions if r not in matches]
                 if new_regions:
+                    orig_idx = int(highlighted_key.split('_')[-1])
                     view.add_regions(highlighted_key, new_regions, 
-                        COLOR_SCOPES[int(highlighted_key.split('_')[-1]) % len(COLOR_SCOPES)], 
+                        scopes[orig_idx % len(scopes)], 
                         "", sublime.DRAW_NO_OUTLINE | sublime.PERSISTENT)
                 else:
                     view.erase_regions(highlighted_key)
@@ -136,7 +145,7 @@ class StyleTokenToggleHighlightCommand(sublime_plugin.TextCommand):
     
     def _get_next_available_style(self, view):
         """Find the first unused style index, return 0 if all are used"""
-        for i in range(len(COLOR_SCOPES)):
+        for i in range(len(get_color_scopes())):
             key = "style_token_{}".format(i)
             regions = view.get_regions(key)
             if not regions:
@@ -146,7 +155,7 @@ class StyleTokenToggleHighlightCommand(sublime_plugin.TextCommand):
     
     def _is_text_highlighted(self, view, matches):
         """Check if text is already highlighted in any style"""
-        for i in range(len(COLOR_SCOPES)):
+        for i in range(len(get_color_scopes())):
             key = "style_token_{}".format(i)
             regions = view.get_regions(key)
             if any(m in regions for m in matches):
@@ -195,7 +204,7 @@ class StyleTokenGoNextCommand(sublime_plugin.TextCommand):
         """Detect which color highlight the cursor is inside"""
         cursor_pos = view.sel()[0].begin()
         
-        for i in range(len(COLOR_SCOPES)):
+        for i in range(len(get_color_scopes())):
             key = "style_token_{}".format(i)
             regions = view.get_regions(key)
             for region in regions:
@@ -245,7 +254,7 @@ class StyleTokenGoPrevCommand(sublime_plugin.TextCommand):
         """Detect which color highlight the cursor is inside"""
         cursor_pos = view.sel()[0].begin()
         
-        for i in range(len(COLOR_SCOPES)):
+        for i in range(len(get_color_scopes())):
             key = "style_token_{}".format(i)
             regions = view.get_regions(key)
             for region in regions:

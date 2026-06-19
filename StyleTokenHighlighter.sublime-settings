@@ -1,0 +1,13 @@
+{
+    "colors": [
+        "string",
+        "comment",
+        "keyword",
+        "constant",
+        "support.function",
+        "variable",
+        "entity.name.class",
+        "invalid",
+        "storage.type"
+    ]
+}

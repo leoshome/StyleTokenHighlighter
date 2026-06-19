@@ -1,0 +1,12 @@
+StyleTokenHighlighter installed!
+
+All commands are available via the Command Palette and the right-click context menu.
+
+To customize or disable the context menu, see the README:
+https://github.com/leoshome/StyleTokenHighlighter#context-menu
+
+To set up keyboard shortcuts, see the README:
+https://github.com/leoshome/StyleTokenHighlighter#key-bindings
+
+You can also customize the 9 highlight colors via:
+Preferences > Package Settings > StyleTokenHighlighter > Settings
