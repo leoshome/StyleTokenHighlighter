@@ -1,4 +1,20 @@
 [
+    {
+        "caption": "Preferences: StyleTokenHighlighter Settings",
+        "command": "edit_settings",
+        "args": {
+            "base_file": "${packages}/StyleTokenHighlighter/StyleTokenHighlighter.sublime-settings",
+            "default": "// StyleTokenHighlighter Settings - User\n{\n\t$0\n}\n"
+        }
+    },
+    {
+        "caption": "Preferences: StyleTokenHighlighter Key Bindings",
+        "command": "edit_settings",
+        "args": {
+            "base_file": "${packages}/StyleTokenHighlighter/Default ($platform).sublime-keymap",
+            "default": "[\n\t$0\n]\n"
+        }
+    },
     { "caption": "StyleToken: Toggle Highlight (Auto Style)", "command": "style_token_toggle_highlight" },
     { "caption": "StyleToken: Using Style 1", "command": "style_token_highlight", "args": {"color_index": 0} },
     { "caption": "StyleToken: Using Style 2", "command": "style_token_highlight", "args": {"color_index": 1} },
