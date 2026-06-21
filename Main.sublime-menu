@@ -24,7 +24,7 @@
                                 "caption": "Key Bindings",
                                 "command": "edit_settings",
                                 "args": {
-                                    "base_file": "${packages}/StyleTokenHighlighter/Default ($platform).sublime-keymap",
+                                    "base_file": "${packages}/StyleTokenHighlighter/Example.sublime-keymap",
                                     "default": "[\n\t$0\n]\n"
                                 }
                             }

@@ -114,26 +114,28 @@ This package doesn't ship key bindings to avoid conflicts with your existing sho
 
 ```json
 // Toggle highlight (auto-picks next available style)
-{ "keys": ["ctrl+k", "ctrl+h"], "command": "style_token_toggle_highlight" },
+{ "keys": ["primary+k", "primary+h"], "command": "style_token_toggle_highlight" },
 
 // Highlight with specific style (color_index 0-8)
-{ "keys": ["ctrl+k", "ctrl+1"], "command": "style_token_highlight", "args": {"color_index": 0} },
-{ "keys": ["ctrl+k", "ctrl+2"], "command": "style_token_highlight", "args": {"color_index": 1} },
-{ "keys": ["ctrl+k", "ctrl+3"], "command": "style_token_highlight", "args": {"color_index": 2} },
-{ "keys": ["ctrl+k", "ctrl+4"], "command": "style_token_highlight", "args": {"color_index": 3} },
-{ "keys": ["ctrl+k", "ctrl+5"], "command": "style_token_highlight", "args": {"color_index": 4} },
-{ "keys": ["ctrl+k", "ctrl+6"], "command": "style_token_highlight", "args": {"color_index": 5} },
-{ "keys": ["ctrl+k", "ctrl+7"], "command": "style_token_highlight", "args": {"color_index": 6} },
-{ "keys": ["ctrl+k", "ctrl+8"], "command": "style_token_highlight", "args": {"color_index": 7} },
-{ "keys": ["ctrl+k", "ctrl+9"], "command": "style_token_highlight", "args": {"color_index": 8} },
+{ "keys": ["primary+k", "primary+1"], "command": "style_token_highlight", "args": {"color_index": 0} },
+{ "keys": ["primary+k", "primary+2"], "command": "style_token_highlight", "args": {"color_index": 1} },
+{ "keys": ["primary+k", "primary+3"], "command": "style_token_highlight", "args": {"color_index": 2} },
+{ "keys": ["primary+k", "primary+4"], "command": "style_token_highlight", "args": {"color_index": 3} },
+{ "keys": ["primary+k", "primary+5"], "command": "style_token_highlight", "args": {"color_index": 4} },
+{ "keys": ["primary+k", "primary+6"], "command": "style_token_highlight", "args": {"color_index": 5} },
+{ "keys": ["primary+k", "primary+7"], "command": "style_token_highlight", "args": {"color_index": 6} },
+{ "keys": ["primary+k", "primary+8"], "command": "style_token_highlight", "args": {"color_index": 7} },
+{ "keys": ["primary+k", "primary+9"], "command": "style_token_highlight", "args": {"color_index": 8} },
 
 // Navigate between highlights
-{ "keys": ["ctrl+k", "ctrl+n"], "command": "style_token_go_next" },
-{ "keys": ["ctrl+k", "ctrl+p"], "command": "style_token_go_prev" },
+{ "keys": ["primary+k", "primary+n"], "command": "style_token_go_next" },
+{ "keys": ["primary+k", "primary+p"], "command": "style_token_go_prev" },
 
 // Clear all highlights
-{ "keys": ["ctrl+k", "ctrl+0"], "command": "style_token_clear_all_highlight" }
+{ "keys": ["primary+k", "primary+0"], "command": "style_token_clear_all_highlight" }
 ```
+
+> **Note:** `primary` maps to `Ctrl` on Windows/Linux and `Cmd` on macOS.
 
 For more information on key bindings, see the [Sublime Text documentation](https://docs.sublimetext.io/reference/key_bindings.html).
 

@@ -1,0 +1,26 @@
+[
+  // Copy these to your keybindings to enable the shortcuts.
+  // You can customize the keyboard combinations to your liking.
+  // "primary" maps to Ctrl on Windows/Linux and Cmd on macOS.
+  //
+  // Toggle highlight (auto-picks next available style):
+  // { "keys": ["primary+k", "primary+h"], "command": "style_token_toggle_highlight" },
+  //
+  // Highlight with specific style (color_index 0-8):
+  // { "keys": ["primary+k", "primary+1"], "command": "style_token_highlight", "args": {"color_index": 0} },
+  // { "keys": ["primary+k", "primary+2"], "command": "style_token_highlight", "args": {"color_index": 1} },
+  // { "keys": ["primary+k", "primary+3"], "command": "style_token_highlight", "args": {"color_index": 2} },
+  // { "keys": ["primary+k", "primary+4"], "command": "style_token_highlight", "args": {"color_index": 3} },
+  // { "keys": ["primary+k", "primary+5"], "command": "style_token_highlight", "args": {"color_index": 4} },
+  // { "keys": ["primary+k", "primary+6"], "command": "style_token_highlight", "args": {"color_index": 5} },
+  // { "keys": ["primary+k", "primary+7"], "command": "style_token_highlight", "args": {"color_index": 6} },
+  // { "keys": ["primary+k", "primary+8"], "command": "style_token_highlight", "args": {"color_index": 7} },
+  // { "keys": ["primary+k", "primary+9"], "command": "style_token_highlight", "args": {"color_index": 8} },
+  //
+  // Navigate between highlights:
+  // { "keys": ["primary+k", "primary+n"], "command": "style_token_go_next" },
+  // { "keys": ["primary+k", "primary+p"], "command": "style_token_go_prev" },
+  //
+  // Clear all highlights:
+  // { "keys": ["primary+k", "primary+0"], "command": "style_token_clear_all_highlight" }
+]
